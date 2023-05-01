@@ -43,23 +43,22 @@ input{
 }
 
 .container{
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 button{
     cursor: pointer;
-    display: inline-block;
     width: 100px;
     padding: 10px 0;
     font-size: 20px;
-    margin: 0 5px;
+    margin: 0 10px;
     border: none;
     color: #613d30;
     border-radius: 5px;
     background: #ffb900;
     transition: 0.3s;
     font-family: Raleway, sans-serif;
-
 }
 
 button:hover{
@@ -67,3 +66,50 @@ button:hover{
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
     font-weight: 600;
 }
+
+.container1{
+    max-width: 800px;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container1 .block{
+    position: relative;
+    width: 300px;
+    height: 100px;
+    background: rgb(255, 255, 255);
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.container1 .block p{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.container1 .block p span{
+    font-weight: 600;
+}
+.container1 .block .delete-button{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+
+

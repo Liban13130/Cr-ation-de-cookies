@@ -15,40 +15,23 @@
   <body>
 
 
-    <h1>Creation de <span>Cookies 🍪</span></h1>
+    <h1>Création de <span>Cookies 🍪</span></h1>
+      <form class="form">
+          <label for="name">Son nom :</label>
+          <input type="text" name="name" id="name" required>
+  
+          <label for="cost">Sa valeur :</label>
+          <input type="text" name="value" id="cost" required>
+          <div class="container">
+              <button type="submit" class="create">Créer</button>
+              <button type="button" class="show">Afficher</button>
+          </div>
+        </form>
 
-    <form class="form">
-        <label for="name">Son nom :</label>
-        <input type="text" name="name" id="name">
+      <p class="info-txt"></p>
+      <ul class="cookies-list"></ul>
 
-        <label for="cost">Sa valeur :</label>
-        <input type="text" name="cost" id="cost">
-    </form>
-
-    <div class="container">
-        <button class="create">Créer</button>
-        <button class="show">Afficher</button>
-    </div>
-
-    <div class="container1">
-      <div class="block">
-        <p><span>Nom :</span> Laptop</p>
-        <p><span>Valeur :</span> 2000</p>
-        <div class="delete-button">x</div>
-      </div>
-      <div class="block">
-        <p><span>Nom :</span> Laptop</p>
-        <p><span>Valeur :</span> 2000</p>
-        <div class="delete-button">x</div>
-      </div>
-      <div class="block">
-        <p><span>Nom :</span> Laptop</p>
-        <p><span>Valeur :</span> 2000</p>
-        <div class="delete-button">x</div>
-      </div>
-    </div>
-
-
+    <div class="toast"></div>
     <script src="app.js"></script>
   </body>
 </html>

@@ -98,3 +98,12 @@ function showCookies(){
 
     createElements(cookies)
 }
+
+function createElements(cookies){
+    
+    cookies.forEach(cookie => {
+        const formatCookie = cookie.split('=')
+        const listItem = document.createElement('li');
+        
+    })
+}

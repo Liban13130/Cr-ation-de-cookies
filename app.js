@@ -44,6 +44,9 @@ function createCookie(newCookie){
     }
 
     document.cookie = `${encodeURIComponent(newCookie.name)}=${encodeURIComponent(newCookie.value)};expires=${newCookie.expires.toUTCString()}` // Ici on crée le cookie son nom sa valeur et sa date d'expiration
+    if(cookiesList.children.length){
+        showCookies()
+    }
 }
 
 function doesCookieExist(name){
@@ -81,6 +84,7 @@ showList.addEventListener('click', showCookies)
 let lock = false
 
 function showCookies(){
+    if(cookiesList.children.length) cookiesList.textContent = ""
     const cookies = document.cookie.replace(/\s/g, "").split(";").reverse()
     console.log(cookies);
     if(!cookies[0]){
@@ -104,6 +108,22 @@ function createElements(cookies){
     cookies.forEach(cookie => {
         const formatCookie = cookie.split('=')
         const listItem = document.createElement('li');
-        
+        const name = decodeURIComponent(formatCookie[0])
+        listItem.innerHTML = `
+        <p>
+        <span>Nom </span> : ${name}
+        </p>
+        <p>
+        <span>Valeur </span> : ${decodeURIComponent(formatCookie[1])}
+        </p>
+        <button>X</button>
+        `;
+        listItem.querySelector('button').addEventListener('click', e => {
+            createToast({name: name, state: "supprimé", color: "crimson"})
+            document.cookie = `${formatCookie[0]}=; expires=${new Date(0)}`  // on detruit le cookie en prenant son nom et le mettre egale a ";" donc rien du 
+                                                                             // tout et on lui met une date d'expiration antérieur à la notre
+            e.target.parentElement.remove() // Quand on clique sur la croix alors son parent est supprimé donc tout le bloc
+        })
+        cookiesList.appendChild(listItem)
     })
 }
